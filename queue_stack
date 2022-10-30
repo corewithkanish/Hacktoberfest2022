@@ -1,0 +1,35 @@
+class node:
+    def __init__(self,data):
+        self.data = data
+        self.next = None
+class queue:
+    def __init__(self):
+        self.front = None
+        self.rear = None
+    def isempty(self):
+        return self.front==None
+
+    def enqueue(self,data):
+        newnode = node(data)
+        if(self.rear==None):
+             self.front =self.rear  = newnode
+        self.rear.next = newnode
+        self.rear = newnode
+    def dequeue(self):
+        if(self.isempty()):
+            return 
+        popnode = self.front
+        self.front = popnode.next
+        if(self.front == None):
+            self.rear = None
+q = queue()
+q.enqueue(10)
+q.enqueue(20)
+# q.enqueue()
+# q.enqueue()
+q.enqueue(30)
+q.enqueue(40)
+q.enqueue(50)
+# q.DeQueue()
+print("Queue Front : " + str(q.front.data))
+print("Queue Rear : " + str(q.rear.data))    
